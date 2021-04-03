@@ -1,8 +1,10 @@
 import React from "react";
 import { SolidMegaphone, SolidMessages, SolidNotification } from "../../icons";
+import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
 import { SingleUser } from "../UserAvatar";
 
 export interface RightHeaderProps {
+  username: string;
   onAnnouncementsClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => null;
@@ -16,7 +18,8 @@ export interface RightHeaderProps {
   avatarImg: string;
 }
 
-export const RightHeader: React.FC<RightHeaderProps> = ({
+const RightHeader: React.FC<RightHeaderProps> = ({
+  username,
   avatarImg,
   actionButton,
   onAnnouncementsClick,
@@ -45,7 +48,11 @@ export const RightHeader: React.FC<RightHeaderProps> = ({
         </button>
       )}
       {actionButton}
-      <SingleUser size="sm" src={avatarImg} />
+      <ApiPreloadLink route="profile" data={{ username }}>
+        <SingleUser size="sm" src={avatarImg} />
+      </ApiPreloadLink>
     </div>
   );
 };
+
+export default RightHeader;
