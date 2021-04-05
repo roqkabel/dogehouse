@@ -77,7 +77,7 @@ export const LoginPage: React.FC = () => {
 
   return (
     <div className="w-full h-full">
-      <HeaderController embed={{}} />
+      <HeaderController embed={{}} title="Login" />
       <div className="absolute top-6 h-8 w-full items-center justify-center sm:hidden">
         <LgLogo />
       </div>
@@ -107,11 +107,10 @@ export const LoginPage: React.FC = () => {
             <SvgSolidGitHub width={20} height={20} />
             Log in with GitHub
           </LoginButton>
-          {/* @todo backend needs to be fixed for twitter to work */}
-          {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
+          <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
             <SvgSolidTwitter width={20} height={20} />
             Log in with Twitter
-          </LoginButton> */}
+          </LoginButton>
           {!__prod__ ? (
             <LoginButton
               dev
